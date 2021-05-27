@@ -18,6 +18,11 @@ const GlobalStyle = createGlobalStyle`
    color : #f9f9f9;
    text-decoration: none;
  }
+ button {
+   border : none;
+   outline : none;
+   color:#faf6ee;
+ }
  @media only screen and (max-width: 768px){
    body {
      font-size: 1rem;

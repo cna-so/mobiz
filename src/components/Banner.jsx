@@ -1,6 +1,9 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Slider from "react-slick";
+import { TiStarHalfOutline } from "react-icons/ti";
+import { MdAdd, MdPlayArrow } from "react-icons/md";
 
 import axios from "api/axios";
 import requests from "api/requests";
@@ -29,16 +32,38 @@ const Banner = () => {
       return data;
     } catch (err) {}
   };
-
   return (
     <Carousel {...settings}>
       {movies.map((movie) => (
         <Wrap key={movie.id}>
+          <div />
           <a>
             <div
-              style={{ backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")` }}
+              style={{
+                backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+              }}
             ></div>
           </a>
+          <Content>
+            <div>
+              <h3>
+                <TiStarHalfOutline /> {movie.vote_average}
+                <span>
+                  {movie.original_language} | {movie.origin_country[0]}
+                </span>
+              </h3>
+              <h1>{movie.name}</h1>
+              <p>{movie?.overview}</p>
+              <div>
+                <WatchBtn>
+                  <MdPlayArrow /> WATCH
+                </WatchBtn>
+                <AddBtn>
+                  <MdAdd /> ADD LIST
+                </AddBtn>
+              </div>
+            </div>
+          </Content>
         </Wrap>
       ))}
     </Carousel>
@@ -46,8 +71,6 @@ const Banner = () => {
 };
 
 const Carousel = styled(Slider)`
-  margin-top: 20px;
-
   & > button {
     opacity: 0;
     height: 100%;
@@ -89,7 +112,15 @@ const Wrap = styled.div`
   cursor: pointer;
   position: relative;
 
+  & > div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    inset: 0px;
+    background: rgba(0, 0, 0, 0.3);
+  }
   a {
+    z-index: -1;
     border-radius: 4px;
     box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
       rgb(0 0 0 / 73%) 0px 16px 10px -10px;
@@ -104,6 +135,7 @@ const Wrap = styled.div`
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
+      
     }
 
     &:hover {
@@ -112,6 +144,51 @@ const Wrap = styled.div`
       transition-duration: 300ms;
     }
   }
+`;
+const Content = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 10%;
+  & > div {
+    width: 50%;
+
+    & > div {
+      display: flex;
+
+    }
+  }
+  h3 {
+    display: flex;
+    align-items: center;
+    & svg {
+      color: yellow;
+    }
+    span {
+      font-size: 15px;
+      font-weight: 100;
+      padding-left: 25px;
+    }
+    p {
+      font-weight: bolder;
+    }
+  }
+`;
+const WatchBtn = styled.button`
+  background: #ff0d1f;
+  padding: 0.8rem 2.5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  
+`;
+const AddBtn = styled.button`
+  background: #000;
+  padding: 0.8rem 2.5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
 `;
 
 export default Banner;

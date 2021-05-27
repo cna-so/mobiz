@@ -24,16 +24,16 @@ const Nav = () => {
 };
 
 const Navigation = styled.nav`
+  z-index: 1;
   position: fixed;
   top: 0px;
   left: 0px;
-  background-color: transparent;
   height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0.5rem 4rem;
+  padding: 0.5rem 6rem;
 `;
 const Logo = styled.div`
   padding: 0;

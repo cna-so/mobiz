@@ -3,12 +3,14 @@ import styled from "styled-components";
 
 import Nav from "components/Nav";
 import Banner from "components/Banner";
+import Viewvers from "components/Viewvers";
 
 const HomeScreen = () => {
   return (
     <Container>
       <Nav />
       <Banner />
+      <Viewvers/>
     </Container>
   );
 };
@@ -17,7 +19,6 @@ const Container = styled.main`
   height: calc(100vh);
   overflow-x: hidden;
   display: block;
-  top: 72px;
   padding: 0 calc(3.5vw + 5px);
 
   &:after {
@@ -29,6 +30,5 @@ const Container = styled.main`
     opacity: 1;
     z-index: -1;
   }
-
 `;
 export default HomeScreen;
