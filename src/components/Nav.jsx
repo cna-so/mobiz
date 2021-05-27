@@ -27,14 +27,13 @@ const Navigation = styled.nav`
   position: fixed;
   top: 0px;
   left: 0px;
-  background-color: #090b13;
+  background-color: transparent;
   height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   padding: 0.5rem 4rem;
-  margin: 0 auto;
 `;
 const Logo = styled.div`
   padding: 0;
