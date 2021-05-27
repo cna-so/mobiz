@@ -1,10 +1,12 @@
 import React from 'react'
 
+import HomeScreen from 'screens/HomeScreen'
+
 const App = () => {
   return (
-    <div>
-      Let's build disney and netflix 🚀 
-    </div>
+    <>
+      <HomeScreen/>
+    </>
   )
 }
 
