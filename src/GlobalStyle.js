@@ -7,6 +7,21 @@ const GlobalStyle = createGlobalStyle`
  * {
   box-sizing: border-box; 
   }
+  * {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.5);
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: #111;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+}
  body {
   background : #040714;
   color :#f9f9f9;

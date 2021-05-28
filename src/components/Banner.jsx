@@ -59,7 +59,7 @@ const Banner = () => {
                   <MdPlayArrow /> WATCH
                 </WatchBtn>
                 <AddBtn>
-                  <MdAdd /> ADD LIST
+                  <MdAdd /> ADD 
                 </AddBtn>
               </div>
             </div>
@@ -173,6 +173,12 @@ const Content = styled.div`
       font-weight: bolder;
     }
   }
+
+  @media screen and (max-width: 768px) {
+   p {
+     display: none;
+   }
+  }
 `;
 const WatchBtn = styled.button`
   background: #ff0d1f;
@@ -186,9 +192,13 @@ const AddBtn = styled.button`
   background: #000;
   padding: 0.8rem 2.5rem;
   border-radius: 1rem;
+  margin-left: 25px;
   display: flex;
   align-items: center;
-  margin-left: 25px;
+
+  @media screen and (max-width: 768px) {
+  padding: 0.8rem 2.5rem;
+  }
 `;
 
 export default Banner;
